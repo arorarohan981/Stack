@@ -111,9 +111,9 @@ void StackUsingVector<T>::PrintStack() const{
     if(isEmpty()){
         std::cout<<"Stack is Empty !!"<<std::endl;
     }
-    auto stackiterator = vectorOfData.cbegin();
+    auto stackiterator = vectorOfData.crbegin();
     std::cout<<"Elements in Stack are as Follows : "<<std::endl;
-    while(stackiterator!=vectorOfData.cend()){
+    while(stackiterator!=vectorOfData.crend()){
         std::cout<<*stackiterator<<std::endl;
         stackiterator++;
     }

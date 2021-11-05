@@ -45,6 +45,77 @@ public:
     void PrintStack() const;
     
 };
+
+template <typename T>
+StackUsingList<T>::StackUsingList(size_t sizeOfStack){
+    stackSize=sizeOfStack;
+}
+
+
+template<typename T>
+bool StackUsingList<T>::isEmpty() const{
+    if(dataCount==-1){
+        return true;
+    }
+    return false;
+}
+
+template <typename T>
+bool StackUsingList<T>::isFull() const{
+    if(dataCount==stackSize-1){
+        return true;
+    }
+    return false;
+}
+
+template <typename T>
+bool StackUsingList<T>::push(T data){
+    if(isFull()){
+        std::cout<<"Stack Is Full. We can't Push in More Elements "<<std::endl;
+        return false;
+    }
+    dataCount++;
+    listOfData.push_back(data);
+    return true;
+}
+
+template <typename T >
+T StackUsingList<T>::pop(){
+    
+    if(isEmpty()){
+        throw std::underflow_error("Stack is Empty we can't Pop out Elements \n");
+    }
+    
+    T data=listOfData.back();
+    listOfData.pop_back();
+    dataCount--;
+    return data;
+}
+
+template <typename T >
+T StackUsingList<T>::top() const{
+    if(isEmpty()){
+        throw std::underflow_error("Stack is Empty we can't see the Top Most Elements \n");
+    }
+    T data=listOfData.back();
+    return data;
+}
+
+
+template<typename T>
+void StackUsingList<T>::PrintStack() const{
+    if(isEmpty()){
+        std::cout<<"Stack is Empty !!"<<std::endl;
+    }
+    auto stackiterator = listOfData.crbegin();
+    std::cout<<"Elements in Stack are as Follows : "<<std::endl;
+    while(stackiterator!=listOfData.crend()){
+        std::cout<<*stackiterator<<std::endl;
+        stackiterator++;
+    }
+
+}
+
 }
 
 

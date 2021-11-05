@@ -7,7 +7,11 @@
 
 #include <iostream>
 #include "StackUsingVector.hpp"
-int main(int argc, const char * argv[]) {
+#include "StackUsingList.hpp"
+
+
+
+void StackUsingVectorImpl(){
     mylib::StackUsingVector<int> integerStack{3};
     std::cout<<std::boolalpha<<"Is Stack Empty ? "<<integerStack.isEmpty()<<std::endl;
     std::cout<<"Is Stack Full ? "<<integerStack.isFull()<<std::endl;
@@ -18,5 +22,23 @@ int main(int argc, const char * argv[]) {
     integerStack.push(3);
     integerStack.push(4);
     integerStack.PrintStack();
+}
+
+void StackUsingListImpl(){
+    mylib::StackUsingList<int> integerStack{4};
+    std::cout<<std::boolalpha<<"Is Stack Empty ? "<<integerStack.isEmpty()<<std::endl;
+    std::cout<<"Is Stack Full ? "<<integerStack.isFull()<<std::endl;
+//    integerStack.top();
+//    integerStack.pop();
+    integerStack.push(1);
+    integerStack.push(2);
+    integerStack.push(3);
+    integerStack.push(4);
+    integerStack.PrintStack();
+}
+int main(int argc, const char * argv[]) {
+//    StackUsingVectorImpl();
+    StackUsingListImpl();
+    
     return 0;
 }
