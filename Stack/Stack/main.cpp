@@ -15,8 +15,7 @@ int main(int argc, const char * argv[]) {
 //    integerStack.pop();
     integerStack.push(1);
     integerStack.push(2);
-    integerStack.push
-    (3);
+    integerStack.push(3);
     integerStack.push(4);
     integerStack.PrintStack();
     return 0;
